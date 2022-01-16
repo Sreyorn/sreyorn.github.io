@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>WebWall</title>
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+      }
+      .bg {
+        background-image: url('https://images.unsplash.com/photo-1554993479-bad0e8038fdd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80');
+        height: 100%;
+        /* center and scale image */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .clockPosition {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+      }
+      .datePosition {
+        display: flex;
+        justify-content: center;
+      }
+      .clock {
+        font-size: 7vw;
+      }
+      .dateText {
+        font-size: 2vw;
+      }
+      .clock:fullscreen {
+        background-color: rgb(18, 115, 148);
+        position: fixed;
+        width: 100vw;
+        height: 100vw;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <i
+      onclick="openFullscreen();"
+      class="material-icons"
+      style="position: absolute; right: 0; cursor: pointer; font-size: 36px;"
+    >
+      fullscreen
+    </i> -->
+    <div class="container">
+      <div class="clockPosition">
+        <div id="clock" class="clock">
+          time?
+        </div>
+        <div id="date" class="dateText datePosition">
+          date?
+        </div>
+      </div>
+    </div>
+
+    <div id="clock" class="bg"></div>
+
+    <script>
+      var elem = document.getElementById('clock')
+      function openFullscreen() {
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen()
+        } else if (elem.webkitRequestFullscreen) {
+          // Safari
+          elem.webkitRequestFullscreen()
+        } else if (elem.msRequestFullscreen) {
+          // IE11
+          elem.msRequestFullscreen()
+        }
+      }
+
+      setInterval(timer, 1000)
+      function timer() {
+        const d = new Date()
+
+        document.getElementById('clock').innerHTML = d.toLocaleTimeString([], {
+          hour: '2-digit',
+          minute: '2-digit',
+        })
+        document.getElementById('date').innerHTML = d.toLocaleDateString()
+      }
+    </script>
+  </body>
+</html>
