@@ -4,95 +4,102 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato"
     />
-    <title>WebWall</title>
+    <title>ornipage</title>
     <style>
-      body,
-      html {
-        height: 100%;
-        margin: 0;
-      }
-      .bg {
-        background-image: url('https://images.unsplash.com/photo-1554993479-bad0e8038fdd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80');
-        height: 100%;
-        /* center and scale image */
+      /* Create a Parallax Effect */
+      .bgimg-1,
+      .bgimg-2,
+      .bgimg-3 {
+        background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
       }
-      .clockPosition {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: white;
+
+      /* First image (Logo. Full height) */
+      .bgimg-1 {
+        background-image: url('https://images.unsplash.com/photo-1555298305-f64672c34821?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
+        min-height: 100%;
       }
-      .datePosition {
-        display: flex;
-        justify-content: center;
-      }
-      .clock {
-        font-size: 7vw;
-      }
-      .dateText {
-        font-size: 2vw;
-      }
-      .clock:fullscreen {
-        background-color: rgb(18, 115, 148);
-        position: fixed;
-        width: 100vw;
-        height: 100vw;
+      /* Turn off parallax scrolling for tablets and phones */
+      @media only screen and (max-device-width: 1600px) {
+        .bgimg-1 {
+          background-attachment: scroll;
+          min-height: 400px;
+        }
       }
     </style>
   </head>
   <body>
-    <!-- <i
-      onclick="openFullscreen();"
-      class="material-icons"
-      style="position: absolute; right: 0; cursor: pointer; font-size: 36px;"
-    >
-      fullscreen
-    </i> -->
-    <div class="container">
-      <div class="clockPosition">
-        <div id="clock" class="clock">
-          time?
+    <!-- First Parallax Image with Logo Text -->
+    <div class="bgimg-1" id="home">
+      <div class="w3-display-middle" style="display: flex;">
+        <a href="webwall.html">
+          <span
+            class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity"
+          >
+            Welcome to fun stuffs
+          </span>
+        </a>
+      </div>
+    </div>
+    <!-- Container (About Section) -->
+    <div class="w3-content w3-container w3-padding-64" id="about">
+      <h3 class="w3-center">ABOUT ME</h3>
+      <p class="w3-center"><em>I love photography</em></p>
+      <p>
+        We have created a fictional "personal" website/blog, and our fictional
+        character is a hobby photographer. Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+      <div class="w3-row">
+        <div class="w3-col m6 w3-center w3-padding-large">
+          <p>
+            <b>
+              <i class="fa fa-user w3-margin-right"></i>
+              FUN STUFFS
+            </b>
+          </p>
+          <br />
+          <img
+            src="https://images.unsplash.com/photo-1557801388-3d52784be549?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+            class="w3-round w3-image w3-opacity w3-hover-opacity-off"
+            alt="Photo of Me"
+            width="500"
+            height="333"
+          />
         </div>
-        <div id="date" class="dateText datePosition">
-          date?
+
+        <!-- Hide this text on small devices -->
+        <div class="w3-col m6 w3-hide-small w3-padding-large">
+          <p>
+            Welcome to my website. I am lorem ipsum consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum consectetur
+            adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.
+          </p>
         </div>
       </div>
     </div>
-
-    <div id="clock" class="bg"></div>
-
-    <script>
-      var elem = document.getElementById('clock')
-      function openFullscreen() {
-        if (elem.requestFullscreen) {
-          elem.requestFullscreen()
-        } else if (elem.webkitRequestFullscreen) {
-          // Safari
-          elem.webkitRequestFullscreen()
-        } else if (elem.msRequestFullscreen) {
-          // IE11
-          elem.msRequestFullscreen()
-        }
-      }
-
-      setInterval(timer, 1000)
-      function timer() {
-        const d = new Date()
-
-        document.getElementById('clock').innerHTML = d.toLocaleTimeString([], {
-          hour: '2-digit',
-          minute: '2-digit',
-        })
-        document.getElementById('date').innerHTML = d.toLocaleDateString()
-      }
-    </script>
   </body>
 </html>
